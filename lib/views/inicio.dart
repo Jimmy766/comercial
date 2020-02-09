@@ -11,7 +11,7 @@ class _InicioState extends State<Inicio> {
   GlobalKey<_InicioState> key=GlobalKey();
   @override
   void initState() {
-    // TODO: implement initState
+ 
     super.initState();
     Future.delayed(Duration(seconds: 3),(){
       Navigator.pushReplacementNamed(key.currentContext, '/login');

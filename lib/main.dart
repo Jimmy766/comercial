@@ -1,8 +1,10 @@
 import 'package:comercial/views/busqueda.dart';
 import 'package:comercial/views/inicio.dart';
 import 'package:comercial/views/login.dart';
+import 'package:comercial/views/negocio.dart';
 import 'package:comercial/views/recupera.dart';
 import 'package:comercial/views/registro.dart';
+import 'package:comercial/views/resultados.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         '/registro': (context)=>Registro(),
         '/recupera': (context)=>Recupera(),
         '/busqueda': (context)=>Busqueda(),
+        '/resultados': (context)=>Resultados(),
+        '/negocio': (context)=>Negocio(),
       },
       initialRoute: '/',
       

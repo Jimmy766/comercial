@@ -53,10 +53,14 @@ class _BusquedaState extends State<Busqueda> {
               child: GridView.count(
                 crossAxisCount: 4,
                 children: <Widget>[
-                  boton(),
-                  boton(),
-                  boton(),
-                  boton(),
+                  boton('img/comidas.png','Restaurantes'),
+                  boton('img/comidas.png','Restaurantes'),
+                  boton('img/bares.png','Bares'),
+                  boton('img/comidas.png','Restaurantes'),
+                  boton('img/bares.png','Bares'),
+                  boton('img/comidas.png','Restaurantes'),
+                  boton('img/bares.png','Bares'),
+                  
                   
                 ],
               ),
@@ -69,14 +73,16 @@ class _BusquedaState extends State<Busqueda> {
   }
 
   
-  Widget boton() {
+  Widget boton(String icono, String texto) {
     return FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(key.currentContext, '/resultados');
+                      },
                       child: Column(
                         children: <Widget>[
-                          Image.asset('img/comidas.png'),
+                          Image.asset(icono),
                           Text(
-                            'Restaurantes',
+                            texto,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 8,
