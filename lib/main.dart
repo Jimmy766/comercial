@@ -1,3 +1,4 @@
+import 'package:comercial/views/busqueda.dart';
 import 'package:comercial/views/inicio.dart';
 import 'package:comercial/views/login.dart';
 import 'package:comercial/views/recupera.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/login': (context)=>Login(),
         '/registro': (context)=>Registro(),
         '/recupera': (context)=>Recupera(),
+        '/busqueda': (context)=>Busqueda(),
       },
       initialRoute: '/',
       

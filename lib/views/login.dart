@@ -4,19 +4,17 @@ import 'package:flutter/widgets.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
-  Login({Key key}):super(key:key);
+  Login({Key key}) : super(key: key);
 }
 
 class _LoginState extends State<Login> {
-  GlobalKey<ScaffoldState> key=GlobalKey();
+  GlobalKey<ScaffoldState> key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: key,
       body: Container(
-        
         child: FractionallySizedBox(
-          
           widthFactor: 1,
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -24,29 +22,28 @@ class _LoginState extends State<Login> {
                   image: AssetImage('img/fondo_login.png'), fit: BoxFit.fill),
             ),
             child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*.4,
-                  ),
-                  boton('img/icon-g.png', 'Inicia con google'.toUpperCase(),
-                      Colors.redAccent),
-                  boton('img/icon-f.png', 'Inicia con Facebook'.toUpperCase(),
-                      Colors.blueAccent),
-                  
-                  correo(),
-                  password(),
-                 
-                  iniciar(),
-                  olvidaste(),
-                  registro(),
-                  //Spacer()
-                ],
-              ),
+              shrinkWrap: true,
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .4,
+                ),
+                boton('img/icon-g.png', 'Inicia con google'.toUpperCase(),
+                    Colors.redAccent),
+                boton('img/icon-f.png', 'Inicia con Facebook'.toUpperCase(),
+                    Colors.blueAccent),
+
+                correo(),
+                password(),
+
+                iniciar(),
+                olvidaste(),
+                registro(),
+                //Spacer()
+              ],
             ),
           ),
         ),
-      
+      ),
     );
   }
 
@@ -54,7 +51,9 @@ class _LoginState extends State<Login> {
     return FractionallySizedBox(
       widthFactor: 0.8,
       child: RaisedButton.icon(
-        onPressed: () {mensaje();},
+        onPressed: () {
+          mensaje();
+        },
         icon: Image.asset(icono, fit: BoxFit.fill, height: 25, width: 25),
         label: Text(texto, style: TextStyle(color: Colors.white)),
         color: color,
@@ -66,9 +65,10 @@ class _LoginState extends State<Login> {
   Widget iniciar() {
     return FractionallySizedBox(
       widthFactor: 0.3,
-          child: OutlineButton(
-        
-        onPressed: () {mensaje();},
+      child: OutlineButton(
+        onPressed: () {
+          login();
+        },
         borderSide: BorderSide(color: Colors.white, width: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Text(
@@ -117,11 +117,12 @@ class _LoginState extends State<Login> {
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           style: TextStyle(),
-          
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(0),
-            hasFloatingPlaceholder: false,
-              labelText: 'Correo', fillColor: Colors.white, filled: true),
+              contentPadding: EdgeInsets.all(0),
+              hasFloatingPlaceholder: false,
+              labelText: 'Correo',
+              fillColor: Colors.white,
+              filled: true),
         ));
   }
 
@@ -132,12 +133,21 @@ class _LoginState extends State<Login> {
           obscureText: true,
           style: TextStyle(),
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(0),
-            hasFloatingPlaceholder: false,
-              labelText: 'Password', fillColor: Colors.white, filled: true),
+              contentPadding: EdgeInsets.all(0),
+              hasFloatingPlaceholder: false,
+              labelText: 'Password',
+              fillColor: Colors.white,
+              filled: true),
         ));
   }
-  mensaje(){
-    key.currentState.showSnackBar(SnackBar(content: Text('sin conexion o en construccion!'),));
+
+  mensaje() {
+    key.currentState.showSnackBar(SnackBar(
+      content: Text('sin conexion o en construccion!'),
+    ));
+  }
+
+  login() {
+    Navigator.pushReplacementNamed(key.currentContext, '/busqueda');
   }
 }
