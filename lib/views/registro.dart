@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 class Registro extends StatefulWidget {
   @override
   _RegistroState createState() => _RegistroState();
@@ -9,6 +10,8 @@ class Registro extends StatefulWidget {
 
 class _RegistroState extends State<Registro> {
   GlobalKey<ScaffoldState> key = GlobalKey();
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
